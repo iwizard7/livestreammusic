@@ -1,5 +1,5 @@
 [![Python application](https://github.com/iwizard7/livestreammusic/actions/workflows/python-app.yml/badge.svg)](https://github.com/iwizard7/livestreammusic/actions/workflows/python-app.yml)
-# Livestream Music
+# Livestream Music 💿🛜
 
 Livestream Music is a web application that allows users to stream music live over the internet. The project is built using HTML and Python.
 
