@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MP3 Streamer</title>
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+    </style>
 </head>
 <body>
     <h1>MP3 Streamer</h1>
 
+    <img id="cover" src="static/default.jpg" alt="Обложка альбома">
     <h2 id="current-track">Выберите трек</h2>
 
     <audio id="player" controls></audio>
@@ -27,6 +36,7 @@
         let currentIndex = 0;
         let player = document.getElementById("player");
         let trackTitle = document.getElementById("current-track");
+        let coverImg = document.getElementById("cover");
 
         async function loadTracks() {
             const response = await fetch("/tracks");
@@ -48,6 +58,7 @@
         function playTrack(index) {
             currentIndex = index;
             trackTitle.textContent = `${tracks[currentIndex].artist} - ${tracks[currentIndex].title}`;
+            coverImg.src = tracks[currentIndex].cover;
             player.src = `/stream/${tracks[currentIndex].filename}`;
             player.play();
         }
@@ -75,7 +86,6 @@
             loadTracks();
         }
 
-        // Автоматическое переключение на следующий трек при окончании
         player.addEventListener("ended", nextTrack);
 
         loadTracks();
