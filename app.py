@@ -61,7 +61,10 @@ def get_tracks():
 @app.route("/stream/<filename>")
 def stream(filename):
     path = os.path.join(MUSIC_DIR, filename)
-    return send_file(path, mimetype="audio/mpeg")
+    try:
+        return send_file(path, mimetype="audio/mpeg")
+    except FileNotFoundError:
+        abort(404)
 
 @app.route("/cover/<filename>")
 def cover(filename):
