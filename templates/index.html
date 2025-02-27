@@ -75,6 +75,9 @@
             loadTracks();
         }
 
+        // Автоматическое переключение на следующий трек при окончании
+        player.addEventListener("ended", nextTrack);
+
         loadTracks();
     </script>
 </body>
