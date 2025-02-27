@@ -5,23 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MP3 Streamer</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em 0;
+        }
+        h1 {
+            margin: 0;
+        }
         img {
             width: 200px;
             height: 200px;
             object-fit: cover;
             border-radius: 10px;
+            margin: 20px 0;
+        }
+        audio {
+            width: 100%;
+            margin: 20px 0;
+        }
+        .controls, .tracklist {
+            margin: 20px 0;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        li:hover {
+            background-color: #f1f1f1;
         }
     </style>
 </head>
 <body>
-    <h1>MP3 Streamer</h1>
+    <header>
+        <h1>MP3 Streamer</h1>
+    </header>
 
     <img id="cover" src="static/default.jpg" alt="Обложка альбома">
     <h2 id="current-track">Выберите трек</h2>
 
     <audio id="player" controls></audio>
 
-    <div>
+    <div class="controls">
         <button onclick="prevTrack()">⏮ Предыдущий</button>
         <button onclick="togglePlayPause()">⏯ Пауза/Воспроизведение</button>
         <button onclick="nextTrack()">⏭ Следующий</button>
@@ -29,7 +83,7 @@
 
     <button onclick="shuffle()">🔀 Перемешать</button>
 
-    <ul id="tracklist"></ul>
+    <ul id="tracklist" class="tracklist"></ul>
 
     <script>
         let tracks = [];
