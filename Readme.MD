@@ -4,8 +4,10 @@ Livestream Music is a web application that allows users to stream music live ove
 
 ## Features
 
-- Stream music live
-- Switch to the next track automatically after the current track ends
+- ✅ Stream music live
+- ✅ Switch to the next track automatically after the current track ends
+- ✅ Отображение обложки альбома (если нет — заглушка default.jpg)
+- ✅ Обновление обложки при смене трека
 
 ## Installation
 
